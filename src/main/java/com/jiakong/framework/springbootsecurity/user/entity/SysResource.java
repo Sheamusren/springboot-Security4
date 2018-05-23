@@ -5,7 +5,7 @@ import javax.persistence.*;
 /**
  * SysResource
  *
- * @author admin
+ * @author yangpeng
  * @date 2018-05-22-16
  */
 @Entity

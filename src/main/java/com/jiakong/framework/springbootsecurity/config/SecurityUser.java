@@ -13,7 +13,7 @@ import java.util.Set;
 /**
  * SecurityUser
  *
- * @author admin
+ * @author yangpeng
  * @date 2018-05-22-17
  */
 public class SecurityUser extends SysUser implements UserDetails {

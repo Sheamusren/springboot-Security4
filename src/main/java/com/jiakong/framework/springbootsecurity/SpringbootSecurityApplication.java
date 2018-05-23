@@ -14,7 +14,7 @@ import javax.annotation.PostConstruct;
 /**
  * 安全系统启动类
  *
- * @author admin
+ * @author yangpeng
  */
 @SpringBootApplication
 public class SpringbootSecurityApplication {

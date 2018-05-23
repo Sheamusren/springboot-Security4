@@ -5,7 +5,7 @@ import javax.persistence.*;
 /**
  * SysRole
  *角色表
- * @author admin
+ * @author yangpeng
  * @date 2018-05-22-16
  */
 @Entity

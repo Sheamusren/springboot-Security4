@@ -6,7 +6,7 @@ import java.util.Date;
 /**
  * SysResourceRole
  *
- * @author admin
+ * @author yangpeng
  * @date 2018-05-22-16
  */
 @Entity

@@ -6,7 +6,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 /**
  * UserRepository
  *
- * @author admin
+ * @author yangpeng
  * @date 2018-05-22-18
  */
 public interface UserRepository extends JpaRepository<SysUser, Long> {

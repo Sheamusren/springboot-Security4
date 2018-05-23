@@ -5,7 +5,7 @@ import org.springframework.context.ApplicationContext;
 /**
  * Appctx
  *
- * @author admin
+ * @author yangpeng
  * @date 2018-05-22-17
  */
 public class Appctx {

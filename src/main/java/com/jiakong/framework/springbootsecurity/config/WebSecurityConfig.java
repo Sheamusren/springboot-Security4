@@ -16,7 +16,7 @@ import org.springframework.security.web.access.intercept.FilterSecurityIntercept
 /**
  * WebSecurityConfig
  *
- * @author admin
+ * @author yangpeng
  * @date 2018-05-22-16
  */
 @Configuration

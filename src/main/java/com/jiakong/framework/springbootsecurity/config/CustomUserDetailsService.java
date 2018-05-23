@@ -11,7 +11,7 @@ import org.springframework.stereotype.Component;
 /**
  * CustomUserDetailsService
  *
- * @author admin
+ * @author yangpeng
  * @date 2018-05-22-16
  */
 @Component("customUserDetailsService")

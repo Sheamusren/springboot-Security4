@@ -8,7 +8,7 @@ import java.util.Set;
 /**
  * SysUser
  *
- * @author admin
+ * @author yangpeng
  * @date 2018-05-22-16
  */
 @Entity

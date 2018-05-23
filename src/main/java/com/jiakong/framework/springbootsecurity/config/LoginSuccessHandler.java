@@ -14,7 +14,7 @@ import java.io.IOException;
 /**
  * LoginSuccessHandler
  *
- * @author admin
+ * @author yangpeng
  * @date 2018-05-22-17
  */
 public class LoginSuccessHandler extends SavedRequestAwareAuthenticationSuccessHandler {

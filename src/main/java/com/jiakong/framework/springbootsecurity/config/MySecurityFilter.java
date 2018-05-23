@@ -21,7 +21,7 @@ import java.io.IOException;
  * 该MyInvocationSecurityMetadataSourceService的作用提从数据库提取权限和资源，装配到HashMap中，
  * 供Spring Security使用，用于权限校验。
  *
- * @author admin
+ * @author yangpeng
  * @date 2018-05-23-10
  */
 @Component

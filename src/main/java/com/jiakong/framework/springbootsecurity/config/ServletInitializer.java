@@ -12,7 +12,7 @@ import javax.servlet.ServletException;
 /**
  * ServletInitializer
  *
- * @author admin
+ * @author yangpeng
  * @date 2018-05-23-10
  */
 public class ServletInitializer extends SpringBootServletInitializer {

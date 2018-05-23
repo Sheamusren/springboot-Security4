@@ -37,7 +37,7 @@ import java.util.Iterator;
  * supports(Class)方法被安全拦截器实现调用，
  * 包含安全拦截器将显示的AccessDecisionManager支持安全对象的类型。
  *
- * @author admin
+ * @author yangpeng
  * @date 2018-05-23-10
  */
 @Service
