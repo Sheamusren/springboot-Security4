@@ -34,10 +34,13 @@ public class SpringbootSecurityApplication {
      * 该方法竟在第一次启动本项目时使用
      * 后续请注释此方法调用
      * 初始化管理员密码
+     * username 数据库的name
+     * TEST/000000   user/123456
      */
     public void initialUser() {
         UserService suserService = (UserService) Appctx.ctx.getBean("userService");
-        SysUser su = suserService.findByName("TEST");
+        String username = "TEST";
+        SysUser su = suserService.findByName(username);
         BCryptPasswordEncoder bc = new BCryptPasswordEncoder(4);
         su.setPassword(bc.encode(su.getPassword()));
         logger.info("密码" + su.getPassword());
