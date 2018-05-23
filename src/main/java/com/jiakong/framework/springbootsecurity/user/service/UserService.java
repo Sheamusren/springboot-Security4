@@ -24,5 +24,6 @@ public class UserService {
     }
 
     public void update(SysUser su) {
+        userRepository.save(su);
     }
 }

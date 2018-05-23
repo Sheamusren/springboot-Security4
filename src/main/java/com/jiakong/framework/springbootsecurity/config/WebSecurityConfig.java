@@ -3,11 +3,15 @@ package com.jiakong.framework.springbootsecurity.config;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.security.authentication.AuthenticationManager;
+import org.springframework.security.config.BeanIds;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
-import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.web.access.intercept.FilterSecurityInterceptor;
 
 /**
  * WebSecurityConfig
@@ -22,7 +26,18 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Autowired
     private CustomUserDetailsService customUserDetailsService;
 
+    // TODO: 2018/5/23 添加权限控制所添加的
+
+    @Autowired
+    private MySecurityFilter mySecurityFilter;
+
+    @Override
+    public AuthenticationManager authenticationManagerBean() throws Exception {
+        return super.authenticationManagerBean();
+    }
+
     /**
+     * 在正确的位置添加我们自定义的过滤器
      * http://localhost:8080/login 输入正确的用户名密码 并且选中remember-me 则登陆成功，转到 index页面
      * 再次访问index页面无需登录直接访问
      * 访问http://localhost:8080/home 不拦截，直接访问，
@@ -41,6 +56,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http
+                .addFilterBefore(mySecurityFilter, FilterSecurityInterceptor.class)
                 .authorizeRequests()
                 .antMatchers("/home").permitAll()
                 .anyRequest().authenticated()
@@ -49,7 +65,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .formLogin()
                 .loginPage("/login")
                 .permitAll()
-                .successHandler(null)
+                .successHandler(loginSuccessHandler())
                 .and()
                 .logout()
                 .logoutSuccessUrl("/home")
@@ -61,8 +77,10 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     }
 
     /**
-     * //指定密码加密所使用的加密器为passwordEncoder()
-     * //需要将密码加密后写入数据库
+     * 指定密码加密所使用的加密器为passwordEncoder()
+     * 需要将密码加密后写入数据库
+     * <p>
+     * eraseCredentials 不删除凭据，以便记住用户
      *
      * @param builder
      * @throws Exception
@@ -71,7 +89,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     public void configureGlobal(AuthenticationManagerBuilder builder) throws Exception {
         builder.userDetailsService(customUserDetailsService).passwordEncoder(PasswordEncoder());
         builder.eraseCredentials(false);
-
     }
 
     @Bean
@@ -84,4 +101,14 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         return new LoginSuccessHandler();
     }
 
+    @Override
+    public void configure(WebSecurity web) throws Exception {
+        super.configure(web);
+    }
+
+    @Bean(name = BeanIds.AUTHENTICATION_MANAGER)
+    @Override
+    protected AuthenticationManager authenticationManager() throws Exception {
+        return super.authenticationManager();
+    }
 }
