@@ -1,4 +1,4 @@
-package com.jiakong.framework.springbootsecurity;
+package com.jiakong.springbootsecurity;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

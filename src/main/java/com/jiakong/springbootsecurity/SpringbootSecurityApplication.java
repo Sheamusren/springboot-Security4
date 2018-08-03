@@ -1,4 +1,4 @@
-package com.jiakong.framework.springbootsecurity;
+package com.jiakong.springbootsecurity;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
